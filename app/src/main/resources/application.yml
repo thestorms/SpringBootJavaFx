@@ -1,0 +1,6 @@
+spring:
+  application:
+    di:
+      title: 'DI'
+  main:
+    web-application-type: none
