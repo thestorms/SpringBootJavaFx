@@ -1,7 +1,8 @@
 package com.di.trading.controllers
 
 import com.di.client.WebClientStockClient
-import com.di.client.models.StockPrice
+import com.di.trading.client.WebClientStockClientLocal
+import com.di.trading.client.models.StockPrice
 import com.di.trading.models.ViewModel
 import javafx.application.Platform
 import javafx.collections.FXCollections
@@ -22,8 +23,8 @@ class AnalysisController implements Consumer<StockPrice> {
     public LineChart<String, Double> chart
 
     private final ViewModel viewModel
-    private WebClientStockClient webClientStockClient
-//    private WebClientStockClientLocal webClientStockClient
+//    private WebClientStockClient webClientStockClient
+    private WebClientStockClientLocal webClientStockClient
     private ObservableList<XYChart.Data<String, Double>> series = FXCollections.observableArrayList()
 
     static DateTimeFormatter MMddHHmmss = DateTimeFormatter.ofPattern("MMdd HH:mm:ss")
@@ -31,16 +32,16 @@ class AnalysisController implements Consumer<StockPrice> {
     // Client in Separate Module Constructor
     // Consider defining a bean of type 'com.di.client.WebClientStockClient' in your configuration.
     // Bean not found even though the config is defined in spring.factories
-    AnalysisController(ViewModel viewModel, WebClientStockClient webClientStockClient) {
-        this.webClientStockClient = webClientStockClient
-        this.viewModel = viewModel
-    }
-
-    // ClientLocal Constructor - works
-//    AnalysisController(ViewModel viewModel, WebClientStockClientLocal webClientStockClient) {
+//    AnalysisController(ViewModel viewModel, WebClientStockClient webClientStockClient) {
 //        this.webClientStockClient = webClientStockClient
 //        this.viewModel = viewModel
 //    }
+
+    // ClientLocal Constructor - works
+    AnalysisController(ViewModel viewModel, WebClientStockClientLocal webClientStockClient) {
+        this.webClientStockClient = webClientStockClient
+        this.viewModel = viewModel
+    }
 
 
     @FXML
