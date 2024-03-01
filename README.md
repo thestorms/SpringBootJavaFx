@@ -1,5 +1,15 @@
 # SpringBootJavaFx
 
+# UPDATED
+Replaced spring.factories with META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports
+
+This was a Spring 2 to Spring 3 change
+   
+**Make sure the case of the file is exact.**
+
+Then put the ns path to the configuration in the file.
+
+
 ### Summary
 
 The purpose of this project is to determine why a Spring Bean located in a different but local Module cannot be found.
