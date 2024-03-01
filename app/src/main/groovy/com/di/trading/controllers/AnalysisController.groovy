@@ -23,24 +23,15 @@ class AnalysisController implements Consumer<StockPrice> {
 
     private final ViewModel viewModel
     private WebClientStockClient webClientStockClient
-//    private WebClientStockClientLocal webClientStockClient
     private ObservableList<XYChart.Data<String, Double>> series = FXCollections.observableArrayList()
 
     static DateTimeFormatter MMddHHmmss = DateTimeFormatter.ofPattern("MMdd HH:mm:ss")
 
-    // Client in Separate Module Constructor
-    // Consider defining a bean of type 'com.di.client.WebClientStockClient' in your configuration.
-    // Bean not found even though the config is defined in spring.factories
+    
     AnalysisController(ViewModel viewModel, WebClientStockClient webClientStockClient) {
         this.webClientStockClient = webClientStockClient
         this.viewModel = viewModel
     }
-
-    // ClientLocal Constructor - works
-//    AnalysisController(ViewModel viewModel, WebClientStockClientLocal webClientStockClient) {
-//        this.webClientStockClient = webClientStockClient
-//        this.viewModel = viewModel
-//    }
 
 
     @FXML
